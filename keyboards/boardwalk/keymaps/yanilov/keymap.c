@@ -5,15 +5,19 @@ enum layer {
   _BASE,
   _LOWER,
   _RAISE,
-  _FN
+  _FN,
+  _WAIFU
 };
 
 #define LOWER MO(1)
 #define RAISE MO(2)
 #define FN    MO(3)
+#define WAIFU MO(4)
 
 // Mac sleep
 #define __SLEEP S(LCTL(KC_POWER))
+
+#define SHFACE SFT_T(KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_ortho_hhkb(
@@ -21,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC, KC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
   KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_GRV,  KC_QUOT, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MINS, KC_EQL,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_CAPS,  \
-           KC_LCTL, KC_LALT, KC_LGUI, RAISE,        KC_SPC,           KC_SPC,      LOWER,   KC_RGUI, KC_RALT, KC_RCTL
+           KC_LCTL, KC_LALT, KC_LGUI, RAISE,        SHFACE,           WAIFU,       LOWER,   KC_RGUI, KC_RALT, KC_RCTL
   ),
 
   [_LOWER] = LAYOUT_ortho_hhkb(
@@ -42,9 +46,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FN] = LAYOUT_ortho_hhkb(
   __SLEEP, _______, _______, _______, _______, _______, RGB_TOG, RGB_MOD, _______, _______, _______, _______, _______, _______, \
-  _______, RESET,   _______, KC_MPRV, KC_MNXT, _______, RGB_SAI, RGB_HUI, _______, _______, _______, _______, _______, _______, \
-  _______, KC_VOLD, KC_VOLU, KC_MUTE, KC_MPLY, _______, RGB_SAD, RGB_HUD, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, \
+  _______, _______, KC_ACL2, KC_ACL1, KC_ACL0, _______, RGB_SAI, RGB_HUI, _______, _______, KC_MS_U, _______, _______, _______, \
+  _______, _______, KC_BTN3, KC_BTN2, KC_BTN1, _______, RGB_SAD, RGB_HUD, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______, \
   _______, _______, _______, _______, _______, _______, RGB_VAD, RGB_VAI, _______, _______, _______, _______, _______, _______, \
+           _______, _______, _______, _______,       _______,       _______,       _______, _______, _______, _______
+  ),
+  [_WAIFU] = LAYOUT_ortho_hhkb(
+  __SLEEP, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+  _______, _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______, _______, KC_PGUP, KC_UP  , KC_PGDN, _______, _______, \
+  _______, KC_VOLD, KC_VOLU, KC_MUTE, KC_MPLY, _______, _______, _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______, _______, KC_END,  _______, _______, _______, _______, _______, \
            _______, _______, _______, _______,       _______,       _______,       _______, _______, _______, _______
   )
 };
