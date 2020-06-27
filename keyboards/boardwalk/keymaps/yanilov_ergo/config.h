@@ -1,1 +1,1 @@
-#define MK_MOMENTARY_ACCEL
+// #define MK_MOMENTARY_ACCEL
