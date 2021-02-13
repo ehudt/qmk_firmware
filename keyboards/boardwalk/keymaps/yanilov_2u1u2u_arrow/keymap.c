@@ -19,11 +19,13 @@
 enum layer {
     _BASE,
     _POK3R,
-    _ASSOC
+    _ASSOC,
+    _WAIFU
 };
 
 #define ASSOC MO(_ASSOC)
 #define POK3R MO(_POK3R)
+#define SPC_WAIFU LT(_WAIFU, KC_SPC)
 // Mac sleep
 #define __SLEEP S(LCTL(KC_POWER))
 
@@ -47,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,
         KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,  KC_PGUP,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,   KC_PGDN,
-        KC_CAPS, KC_LCTL, KC_LALT, KC_LGUI,      KC_SPC,      ASSOC,        POK3R,       KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT
+        KC_CAPS, KC_LCTL, KC_LALT, KC_LGUI,      SPC_WAIFU,      ASSOC,        POK3R,       KC_RGUI, KC_RALT, KC_LEFT, KC_DOWN, KC_RGHT
     ),
     /* Pok3r-compatible layer, media buttons were shifted to be more ergonomic on ortho.
     */
@@ -72,13 +74,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_QUOT, KC_LBRC, KC_RBRC, KC_PIPE, KC_GRV,  KC_MINS, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, 
         _______, _______, _______, KC_LCBR, KC_RCBR, _______, _______, KC_MINS, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______,     _______,      _______,     _______,      _______, _______, _______, _______, _______
+    ),
+    [_WAIFU] = LAYOUT_2u_arrow(
+        RESET,   _______, _______, _______, _______, RGB_TOG, RGB_MOD, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, KC_ACL2, KC_ACL1, KC_ACL0, RGB_HUD, RGB_HUI, _______, KC_MS_U, _______, _______, _______, _______, _______,
+        _______, _______, KC_BTN3, KC_BTN2, KC_BTN1, RGB_SAD, RGB_SAI, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______, _______, _______, 
+        _______, _______, _______, _______, _______, RGB_VAD, RGB_VAI, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______,     _______,      _______,     _______,      _______, _______, _______, _______, _______
     )
 };
-
- // [_WAIFU] = LAYOUT_2u_arrow(
-    //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
-    //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    //     _______, _______, _______, _______,     _______,      _______,     _______,      _______, _______, _______, _______, _______
-    // )
